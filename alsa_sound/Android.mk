@@ -38,7 +38,7 @@ ifeq ($(strip $(QCOM_ADSP_SSR_ENABLED)),true)
     common_cflags += -DQCOM_ADSP_SSR_ENABLED
 endif
 ifneq ($(strip $(QCOM_FLUENCE_ENABLED)),false)
-    common_cflags += -DQCOM_FLUENCE_ENABLED
+    #common_cflags += -DQCOM_FLUENCE_ENABLED
 endif
 ifneq ($(strip $(QCOM_TUNNEL_LPA_ENABLED)),false)
     common_cflags += -DQCOM_TUNNEL_LPA_ENABLED
@@ -48,13 +48,13 @@ ifeq ($(call is-board-platform,msm8974),true)
     common_cflags += -DTARGET_8974
 endif
 
-ifeq ($(TARGET_BOOTLOADER_BOARD_NAME),taurus)
-    common_cflags += -DTAURUS
-endif
+#ifeq ($(TARGET_BOOTLOADER_BOARD_NAME),taurus)
+#    common_cflags += -DTAURUS
+#endif
 
-ifeq ($(TARGET_BOOTLOADER_BOARD_NAME),aries)
+#ifeq ($(TARGET_BOOTLOADER_BOARD_NAME),aries)
     common_cflags += -DARIES
-endif
+#endif
 
 ifneq ($(ALSA_DEFAULT_SAMPLE_RATE),)
     common_cflags += -DALSA_DEFAULT_SAMPLE_RATE=$(ALSA_DEFAULT_SAMPLE_RATE)

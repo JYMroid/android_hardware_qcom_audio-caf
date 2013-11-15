@@ -376,7 +376,7 @@ AudioHardwareALSA::AudioHardwareALSA() :
     String8 value;
 #ifdef QCOM_FLUENCE_ENABLED
     //Set default AudioParameter for fluencetype
-    key  = String8(AudioParameter::keyFluenceType);
+    /*key  = String8(AudioParameter::keyFluenceType);
     property_get("ro.qc.sdk.audio.fluencetype",mFluenceKey,"0");
     if (0 == strncmp("fluencepro", mFluenceKey, sizeof("fluencepro"))) {
         mDevSettingsFlag |= QMIC_FLAG;
@@ -395,7 +395,7 @@ AudioHardwareALSA::AudioHardwareALSA() :
         ALOGD("Fluence feature Disabled");
     }
     param.add(key, value);
-    mALSADevice->setFlags(mDevSettingsFlag);
+    mALSADevice->setFlags(mDevSettingsFlag);*/
 #endif
 
 #ifdef QCOM_SSR_ENABLED
@@ -965,10 +965,10 @@ String8 AudioHardwareALSA::getParameters(const String8& keys)
         param.addInt(key, mCurDevice);
     }
 
-    key = String8(AudioParameter::keyCanOpenProxy);
+    /*key = String8(AudioParameter::keyCanOpenProxy);
     if(param.get(key, value) == NO_ERROR) {
         param.addInt(key, mCanOpenProxy);
-    }
+    }*/
 
     key = String8(ECHO_SUPRESSION);
     if (param.get(key, value) == NO_ERROR) {
@@ -2267,7 +2267,7 @@ int uart_load_binary(int fd, char *firmware_path)
             ALOGV("ES310: voiceproc_reset ES310_RESET_CMD OK\n");
         else
             ALOGE("ES310: voiceproc_reset ES310_RESET_CMD error %s\n", strerror(errno));
-
+	return 0;
         /* init uart port */
         uart_fd = open(UART_DEV_NAME, O_RDWR | O_NOCTTY | O_NDELAY);
         if (uart_fd < 0) {
